@@ -1,11 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="height: 100%;">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Карта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .image-container {
+            position: fixed; /* Закрепляем контейнер */
+            top: 0;
+            left: 0;
+            width: 100%; /* Занимает всю ширину экрана */
+            max-width: 100%; /* Не выходит за границы экрана */
+            height: auto;
+            overflow: hidden; /* Убираем выходящие элементы */
+        }
+
+        img {
+            display: block;
+            width: 100%; /* Адаптируем изображение */
+            height: auto;
+        }
+
+        .button-container {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .icon-button {
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 5vw;
+            height: 5vw;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-button:active {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .card {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%; /* Адаптируем ширину карточки */
+            max-width: 300px; /* Максимальная ширина */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            display: none;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .card p {
+            margin: 0;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <h1>Heldlo</h1>
+    <div class="image-container">
+        <img src="https://i.imgur.com/Eu8EfXC.png" alt="Background">
+
+        <!-- Кнопка 1 -->
+        <div class="button-container" style="top: 30%; left: 32.5%;">
+            <button class="icon-button" onclick="toggleCard(1)"></button>
+            <div class="card" id="infoCard1">
+                <img src="https://via.placeholder.com/300x150" alt="Placeholder Image">
+                <h3>Информация 1</h3>
+                <p>Это пример карточки №1.</p>
+            </div>
+        </div>
+
+        <!-- Кнопка 2 -->
+        <div class="button-container" style="top: 58%; right: 11.5%;">
+            <button class="icon-button" onclick="toggleCard(2)"></button>
+            <div class="card" id="infoCard2">
+                <img src="https://via.placeholder.com/300x150" alt="Placeholder Image">
+                <h3>Информация 2</h3>
+                <p>Это пример карточки №2.</p>
+            </div>
+        </div>
+
+        <!-- Кнопка 3 -->
+        <div class="button-container" style="top: 50%; left: 4.55%;">
+            <button class="icon-button" onclick="toggleCard(3)"></button>
+            <div class="card" id="infoCard3">
+                <img src="https://via.placeholder.com/300x150" alt="Placeholder Image">
+                <h3>Информация 3</h3>
+                <p>Это пример карточки №3.</p>
+            </div>
+        </div>
+
+        <!-- Кнопка 4 -->
+        <div class="button-container" style="top:68.5%; right: 46.5%;">
+            <button class="icon-button" onclick="toggleCard(4)"></button>
+            <div class="card" id="infoCard4">
+                <img src="https://via.placeholder.com/300x150" alt="Placeholder Image">
+                <h3>Информация 4</h3>
+                <p>Это пример карточки №4.</p>
+            </div>
+        </div>
+          <!-- Кнопка 5 -->
+        <div class="button-container" style="top: 40%; left: 52%; transform: translate(-50%, -50%);">
+            <button class="icon-button" onclick="toggleCard(5)"></button>
+            <div class="card" id="infoCard5">
+                <img src="https://via.placeholder.com/300x150" alt="Placeholder Image">
+                <h3>Информация 5</h3>
+                <p>Это пример карточки №5.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(cardId) {
+            const card = document.getElementById('infoCard' + cardId);
+            card.style.display = card.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
